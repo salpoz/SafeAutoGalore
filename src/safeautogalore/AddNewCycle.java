@@ -103,7 +103,7 @@ public class AddNewCycle extends javax.swing.JFrame {
         jLabel8 = new javax.swing.JLabel();
         priceField = new javax.swing.JTextField();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jLabel1.setFont(new java.awt.Font("Ubuntu", 1, 29)); // NOI18N
         jLabel1.setText("Add New MotorCycle");
@@ -127,6 +127,11 @@ public class AddNewCycle extends javax.swing.JFrame {
         jScrollPane1.setViewportView(bikeDescription);
 
         jButton1.setText("Cancel");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         addBikeBtn.setText("Add");
         addBikeBtn.addActionListener(new java.awt.event.ActionListener() {
@@ -263,6 +268,11 @@ public class AddNewCycle extends javax.swing.JFrame {
     private void yearBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_yearBoxActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_yearBoxActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        this.dispose();
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
