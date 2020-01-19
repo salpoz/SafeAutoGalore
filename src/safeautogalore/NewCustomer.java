@@ -20,8 +20,8 @@ import javax.swing.JOptionPane;
  */
 public class NewCustomer extends javax.swing.JFrame {
     
-    public ArrayList<Individual> individuals;
-    public ArrayList<Company> companies;
+    private ArrayList<Individual> individuals;
+    private ArrayList<Company> companies;
 
     /**
      * Creates new form NewCustomer
@@ -29,53 +29,17 @@ public class NewCustomer extends javax.swing.JFrame {
     public NewCustomer(){
         initComponents();
         individuals = new ArrayList<Individual>();
-        companies = new ArrayList<Company>();
-        populateArrayLists();
+        companies = new ArrayList<Company>();       
     }
     
-    public void populateArrayLists(){
-        try{
-            FileInputStream file = new FileInputStream("individuals.dat");
-            ObjectInputStream inputFile = new ObjectInputStream(file);
-            
-            boolean endOfFile = false;
-            
-            while(!endOfFile){
-                try{
-                    individuals.add((Individual)inputFile.readObject());
-                } catch(EOFException f){
-                    endOfFile = true;
-                } catch(ClassNotFoundException cl){
-                    JOptionPane.showMessageDialog(null, "class not found");
-                }
-            }
-            
-            
-            file.close();
-            
-            FileInputStream file2 = new FileInputStream("companies.dat");
-            ObjectInputStream inputFile2 = new ObjectInputStream(file2);
-            
-            boolean endOfFile2 = false;
-            
-            while(!endOfFile2){
-                try{
-                    companies.add((Company)inputFile2.readObject());
-                } catch(EOFException f){
-                    endOfFile2 = true;
-                } catch(ClassNotFoundException cl){
-                    JOptionPane.showMessageDialog(null, "Class not found");
-                }
-            }
-            
-            file2.close();
-            
-        } catch(IOException e){
-            JOptionPane.showMessageDialog(null, e.getMessage());
-        }
+    public void setIndividualArray(ArrayList<Individual> indi){
+        this.individuals = indi;
     }
     
-    // Save all customers to file
+    public void setCompanyArray(ArrayList<Company> comp){
+        this.companies = comp;
+    }
+       // Save all customers to file
     public void saveIndividualToFile(){
         try{
             FileOutputStream file = new FileOutputStream("individuals.dat");
@@ -231,7 +195,7 @@ public class NewCustomer extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(73, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -258,7 +222,7 @@ public class NewCustomer extends javax.swing.JFrame {
                                     .addComponent(licenseOrRegField, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(jLabel3)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 183, Short.MAX_VALUE)
                                 .addComponent(phoneField, javax.swing.GroupLayout.PREFERRED_SIZE, 357, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(98, 98, 98))))
         );
@@ -319,7 +283,7 @@ public class NewCustomer extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(59, 59, 59)
-                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 779, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(73, 73, 73)
                         .addComponent(jLabel7))
@@ -378,6 +342,9 @@ public class NewCustomer extends javax.swing.JFrame {
                 individual.setPassword(password);
                 individuals.add(individual);
                 saveIndividualToFile();
+                
+                new Login().setVisible(true);
+                
                 this.dispose();
             
             } else {
@@ -407,6 +374,9 @@ public class NewCustomer extends javax.swing.JFrame {
                 companies.add(company);
                 
                 saveCompanyToFile();
+                
+                new Login().setVisible(true);
+                
                 this.dispose();
                 
             } else {

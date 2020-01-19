@@ -28,8 +28,6 @@ public class AddNewCycle extends javax.swing.JFrame {
     public AddNewCycle() {
         initComponents();
         motorCycles = new ArrayList<MotorCycle>();
-        monthBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Month", "Jan", "Feb", "Mar"
-        ,"Apr","May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"}));
         yearBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Year", "2000", "2001", "2002", 
         "2003", "2004", "2005", "2006", "2007", "2008", "2009", "2010", "2011", "2012", "2013", "2014", "2015",
         "2016", "2017", "2018", "2019", "2020"}));
@@ -61,9 +59,9 @@ public class AddNewCycle extends javax.swing.JFrame {
         }
     }
     
-    public void saveBikeToList(){
+    public void saveBikeToFile(){
         try{
-            FileOutputStream file = new FileOutputStream("motorCycles.dat");
+            FileOutputStream file = new FileOutputStream("motorcycles.dat");
             ObjectOutputStream outputFile = new ObjectOutputStream(file);
             
             for(MotorCycle bike: motorCycles){
@@ -90,18 +88,15 @@ public class AddNewCycle extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         bikeName = new javax.swing.JTextField();
-        bikeModel = new javax.swing.JTextField();
         bikeBrand = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         bikeDescription = new javax.swing.JTextArea();
         jButton1 = new javax.swing.JButton();
         addBikeBtn = new javax.swing.JButton();
-        monthBox = new javax.swing.JComboBox<>();
         yearBox = new javax.swing.JComboBox<>();
         jLabel7 = new javax.swing.JLabel();
         engineCap = new javax.swing.JTextField();
@@ -113,9 +108,7 @@ public class AddNewCycle extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Ubuntu", 1, 29)); // NOI18N
         jLabel1.setText("Add New MotorCycle");
 
-        jLabel2.setText("Name");
-
-        jLabel3.setText("Model");
+        jLabel2.setText("Model Name");
 
         jLabel4.setText("Manufactured Date");
 
@@ -142,13 +135,6 @@ public class AddNewCycle extends javax.swing.JFrame {
             }
         });
 
-        monthBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        monthBox.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                monthBoxActionPerformed(evt);
-            }
-        });
-
         yearBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         yearBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -171,27 +157,20 @@ public class AddNewCycle extends javax.swing.JFrame {
                     .addComponent(jLabel6)
                     .addComponent(jLabel5)
                     .addComponent(jLabel4)
-                    .addComponent(jLabel3)
                     .addComponent(jLabel7)
                     .addComponent(jLabel8))
                 .addGap(51, 51, 51)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 555, Short.MAX_VALUE)
                     .addComponent(bikeName)
-                    .addComponent(bikeModel)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(69, 69, 69)
-                        .addComponent(monthBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(yearBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(88, 88, 88))
                     .addComponent(bikeBrand)
                     .addComponent(engineCap)
                     .addComponent(priceField)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jButton1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(addBikeBtn)))
+                        .addComponent(addBikeBtn))
+                    .addComponent(yearBox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -201,28 +180,23 @@ public class AddNewCycle extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(bikeName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
-                    .addComponent(bikeModel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
-                    .addComponent(monthBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(yearBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel5)
-                    .addComponent(bikeBrand, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(bikeBrand, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel5))
+                .addGap(16, 16, 16)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel7)
                     .addComponent(engineCap, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel8)
-                    .addComponent(priceField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(38, 38, 38)
+                .addGap(11, 11, 11)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(priceField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel8))
+                .addGap(43, 43, 43)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel6)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -254,7 +228,7 @@ public class AddNewCycle extends javax.swing.JFrame {
                 .addComponent(jLabel1)
                 .addGap(40, 40, 40)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(21, Short.MAX_VALUE))
+                .addContainerGap(17, Short.MAX_VALUE))
         );
 
         pack();
@@ -266,31 +240,25 @@ public class AddNewCycle extends javax.swing.JFrame {
 
     private void addBikeBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addBikeBtnActionPerformed
         // TODO add your handling code here:
-        if(bikeName.getText().isEmpty() || bikeModel.getText().isEmpty() ||
-                monthBox.getSelectedItem().equals("Month") || yearBox.getSelectedItem().equals("Year") ||
+        if(bikeName.getText().isEmpty() ||yearBox.getSelectedItem().equals("Year") ||
                 bikeBrand.getText().isEmpty() || bikeDescription.getText().isEmpty()){
             JOptionPane.showMessageDialog(null, "Please enter all fields");
         } else {
             MotorCycle bike;
-            String name = bikeName.getText();
-            String model = bikeModel.getText();
-            String month = (String)monthBox.getSelectedItem();
+            String modelName = bikeName.getText();
             String year = (String)yearBox.getSelectedItem();
-            String date = month + " " + year;
             double price = Double.parseDouble(priceField.getText());
             String engine = engineCap.getText();
             String descr = bikeDescription.getText();
             String brand = bikeBrand.getText();
             
-            bike = new MotorCycle(name, brand, price, date, engine, descr);
+            bike = new MotorCycle(modelName, brand, price, year, engine, descr);
             motorCycles.add(bike);
             
+            saveBikeToFile();
+            this.dispose();
         }
     }//GEN-LAST:event_addBikeBtnActionPerformed
-
-    private void monthBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_monthBoxActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_monthBoxActionPerformed
 
     private void yearBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_yearBoxActionPerformed
         // TODO add your handling code here:
@@ -335,13 +303,11 @@ public class AddNewCycle extends javax.swing.JFrame {
     private javax.swing.JButton addBikeBtn;
     private javax.swing.JTextField bikeBrand;
     private javax.swing.JTextArea bikeDescription;
-    private javax.swing.JTextField bikeModel;
     private javax.swing.JTextField bikeName;
     private javax.swing.JTextField engineCap;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
@@ -349,7 +315,6 @@ public class AddNewCycle extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JComboBox<String> monthBox;
     private javax.swing.JTextField priceField;
     private javax.swing.JComboBox<String> yearBox;
     // End of variables declaration//GEN-END:variables

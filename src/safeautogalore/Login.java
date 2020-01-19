@@ -114,6 +114,11 @@ public class Login extends javax.swing.JFrame {
         });
 
         cancelBtn.setText("Cancel");
+        cancelBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cancelBtnActionPerformed(evt);
+            }
+        });
 
         registerBtn.setText("Register");
         registerBtn.addActionListener(new java.awt.event.ActionListener() {
@@ -241,9 +246,17 @@ public class Login extends javax.swing.JFrame {
 
     private void registerBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registerBtnActionPerformed
         // TODO add your handling code here:
-        new NewCustomer().setVisible(true);
-        
+        NewCustomer nc = new NewCustomer();
+        nc.setIndividualArray(individuals);
+        nc.setCompanyArray(companies);
+        nc.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_registerBtnActionPerformed
+
+    private void cancelBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelBtnActionPerformed
+        // TODO add your handling code here:
+        System.exit(0);
+    }//GEN-LAST:event_cancelBtnActionPerformed
 
     /**
      * @param args the command line arguments
