@@ -90,11 +90,8 @@ public class AddNewCycle extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
         bikeName = new javax.swing.JTextField();
         bikeBrand = new javax.swing.JTextField();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        bikeDescription = new javax.swing.JTextArea();
         jButton1 = new javax.swing.JButton();
         addBikeBtn = new javax.swing.JButton();
         yearBox = new javax.swing.JComboBox<>();
@@ -102,6 +99,8 @@ public class AddNewCycle extends javax.swing.JFrame {
         engineCap = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
         priceField = new javax.swing.JTextField();
+        jLabel3 = new javax.swing.JLabel();
+        taxField = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -114,17 +113,11 @@ public class AddNewCycle extends javax.swing.JFrame {
 
         jLabel5.setText("Brand");
 
-        jLabel6.setText("Description");
-
         bikeName.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 bikeNameActionPerformed(evt);
             }
         });
-
-        bikeDescription.setColumns(20);
-        bikeDescription.setRows(5);
-        jScrollPane1.setViewportView(bikeDescription);
 
         jButton1.setText("Cancel");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -151,6 +144,8 @@ public class AddNewCycle extends javax.swing.JFrame {
 
         jLabel8.setText("Price");
 
+        jLabel3.setText("Tax");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -159,23 +154,23 @@ public class AddNewCycle extends javax.swing.JFrame {
                 .addGap(50, 50, 50)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel2)
-                    .addComponent(jLabel6)
                     .addComponent(jLabel5)
                     .addComponent(jLabel4)
                     .addComponent(jLabel7)
-                    .addComponent(jLabel8))
+                    .addComponent(jLabel8)
+                    .addComponent(jLabel3))
                 .addGap(51, 51, 51)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 555, Short.MAX_VALUE)
                     .addComponent(bikeName)
                     .addComponent(bikeBrand)
                     .addComponent(engineCap)
                     .addComponent(priceField)
+                    .addComponent(yearBox, 0, 555, Short.MAX_VALUE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jButton1)
+                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(addBikeBtn))
-                    .addComponent(yearBox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(addBikeBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(taxField))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -201,15 +196,15 @@ public class AddNewCycle extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(priceField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel8))
-                .addGap(43, 43, 43)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel6)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 87, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(addBikeBtn))
-                .addGap(104, 104, 104))
+                    .addComponent(jLabel3)
+                    .addComponent(taxField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(139, 139, 139)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(addBikeBtn)
+                    .addComponent(jButton1))
+                .addContainerGap(115, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -224,7 +219,7 @@ public class AddNewCycle extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(372, 372, 372)
                         .addComponent(jLabel1)))
-                .addContainerGap(205, Short.MAX_VALUE))
+                .addContainerGap(86, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -233,7 +228,7 @@ public class AddNewCycle extends javax.swing.JFrame {
                 .addComponent(jLabel1)
                 .addGap(40, 40, 40)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(17, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -246,7 +241,7 @@ public class AddNewCycle extends javax.swing.JFrame {
     private void addBikeBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addBikeBtnActionPerformed
         // TODO add your handling code here:
         if(bikeName.getText().isEmpty() ||yearBox.getSelectedItem().equals("Year") ||
-                bikeBrand.getText().isEmpty() || bikeDescription.getText().isEmpty()){
+                bikeBrand.getText().isEmpty() || taxField.getText().isEmpty()){
             JOptionPane.showMessageDialog(null, "Please enter all fields");
         } else {
             MotorCycle bike;
@@ -254,10 +249,10 @@ public class AddNewCycle extends javax.swing.JFrame {
             String year = (String)yearBox.getSelectedItem();
             double price = Double.parseDouble(priceField.getText());
             String engine = engineCap.getText();
-            String descr = bikeDescription.getText();
+            double tax = Double.parseDouble(taxField.getText());
             String brand = bikeBrand.getText();
             
-            bike = new MotorCycle(modelName, brand, price, year, engine, descr);
+            bike = new MotorCycle(modelName, brand, price, year, engine, tax);
             motorCycles.add(bike);
             
             saveBikeToFile();
@@ -312,20 +307,19 @@ public class AddNewCycle extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton addBikeBtn;
     private javax.swing.JTextField bikeBrand;
-    private javax.swing.JTextArea bikeDescription;
     private javax.swing.JTextField bikeName;
     private javax.swing.JTextField engineCap;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextField priceField;
+    private javax.swing.JTextField taxField;
     private javax.swing.JComboBox<String> yearBox;
     // End of variables declaration//GEN-END:variables
 }

@@ -16,15 +16,17 @@ public class MotorCycle implements Serializable{
     private double price;
     private String manufactureDate;
     private String engineCapacity;
-    private String description;
+    private int discount;
+    private double tax;
 
-    public MotorCycle(String name, String brand, double price, String manufactureDate, String engineCapacity, String description) {
+    public MotorCycle(String name, String brand, double price, String manufactureDate, String engineCapacity, double tax) {
         this.name = name;
         this.brand = brand;
         this.price = price;
         this.manufactureDate = manufactureDate;
         this.engineCapacity = engineCapacity;
-        this.description = description;
+        this.discount = 0;
+        this.tax = tax;
     }
 
     public String getName() {
@@ -67,13 +69,26 @@ public class MotorCycle implements Serializable{
         this.engineCapacity = engineCapacity;
     }
 
-    public String getDescription() {
-        return description;
+    public int getDiscount() {
+        return discount;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
+    public void setDiscount(int discount) {
+        this.discount = discount;
     }
+
+    public double getTax() {
+        return tax;
+    }
+
+    public void setTax(double tax) {
+        this.tax = tax;
+    }
+    
+    
+
+    
+
     
     
 }
