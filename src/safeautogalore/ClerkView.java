@@ -23,8 +23,9 @@ public class ClerkView extends javax.swing.JFrame {
     public ClerkView() {
         initComponents();
         
-        
     }
+    
+    
 
     public void setArrayLists(ArrayList<Individual> indi, ArrayList<Company> comp){
         this.individuals = indi;
@@ -44,8 +45,8 @@ public class ClerkView extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
+        editCustomerBtn = new javax.swing.JButton();
+        discountBtn = new javax.swing.JButton();
         jPanel4 = new javax.swing.JPanel();
         infoLabel = new javax.swing.JLabel();
 
@@ -105,22 +106,22 @@ public class ClerkView extends javax.swing.JFrame {
             }
         });
 
-        jButton3.setText("Edit Customer");
-        jButton3.addMouseListener(new java.awt.event.MouseAdapter() {
+        editCustomerBtn.setText("Edit Customer");
+        editCustomerBtn.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                jButton3MouseEntered(evt);
+                editCustomerBtnMouseEntered(evt);
             }
         });
 
-        jButton4.setText("Set Discount");
-        jButton4.addMouseListener(new java.awt.event.MouseAdapter() {
+        discountBtn.setText("Set Discount");
+        discountBtn.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                jButton4MouseEntered(evt);
+                discountBtnMouseEntered(evt);
             }
         });
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
+        discountBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
+                discountBtnActionPerformed(evt);
             }
         });
 
@@ -133,8 +134,8 @@ public class ClerkView extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jButton1)
                     .addComponent(jButton2)
-                    .addComponent(jButton3)
-                    .addComponent(jButton4))
+                    .addComponent(editCustomerBtn)
+                    .addComponent(discountBtn))
                 .addContainerGap(86, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -145,9 +146,9 @@ public class ClerkView extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(jButton2)
                 .addGap(12, 12, 12)
-                .addComponent(jButton3)
+                .addComponent(editCustomerBtn)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButton4)
+                .addComponent(discountBtn)
                 .addContainerGap(360, Short.MAX_VALUE))
         );
 
@@ -158,7 +159,7 @@ public class ClerkView extends javax.swing.JFrame {
             }
         });
 
-        infoLabel.setFont(new java.awt.Font("Ubuntu", 2, 29)); // NOI18N
+        infoLabel.setFont(new java.awt.Font("Ubuntu", 2, 18)); // NOI18N
         infoLabel.setForeground(new java.awt.Color(16, 89, 212));
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
@@ -210,9 +211,10 @@ public class ClerkView extends javax.swing.JFrame {
         new NewCustomer().setVisible(true);
     }//GEN-LAST:event_jButton2ActionPerformed
 
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+    private void discountBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_discountBtnActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton4ActionPerformed
+        
+    }//GEN-LAST:event_discountBtnActionPerformed
 
     private void jButton1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseEntered
         // TODO add your handling code here:
@@ -234,15 +236,15 @@ public class ClerkView extends javax.swing.JFrame {
         infoLabel.setText("Click to Add new customer");
     }//GEN-LAST:event_jButton2MouseEntered
 
-    private void jButton3MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton3MouseEntered
+    private void editCustomerBtnMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_editCustomerBtnMouseEntered
         // TODO add your handling code here:
-        infoLabel.setText("This feature is not yet available!");
-    }//GEN-LAST:event_jButton3MouseEntered
+        infoLabel.setText("Edit Customer details");
+    }//GEN-LAST:event_editCustomerBtnMouseEntered
 
-    private void jButton4MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton4MouseEntered
+    private void discountBtnMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_discountBtnMouseEntered
         // TODO add your handling code here:
         infoLabel.setText("Set discount to existing Motorcycles");
-    }//GEN-LAST:event_jButton4MouseEntered
+    }//GEN-LAST:event_discountBtnMouseEntered
 
     /**
      * @param args the command line arguments
@@ -280,11 +282,11 @@ public class ClerkView extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton discountBtn;
+    private javax.swing.JButton editCustomerBtn;
     private javax.swing.JLabel infoLabel;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
